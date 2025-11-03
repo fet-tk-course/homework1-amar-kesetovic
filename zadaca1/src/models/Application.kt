@@ -9,9 +9,9 @@ data class Application (
     var appSize : Double
 ){
     init {
-        if(appName.isEmpty()) println("App name can't be empty")
-        if(appDownloads <= 0) println("App can't have downloads <= 0")
-        if((appAverageRating < 0.0) || (appAverageRating > 5.0)) println("App can't have average rating < 0 or > 5")
-        if(appSize <= 0) println("App size can't be less than 0 MB")
+      require(!appName.isEmpty()) {"App must have a name!"}
+        require(appDownloads >= 0) {"App can't have downloads < 0"}
+        require((appAverageRating >= 0.0) && (appAverageRating <= 5.0)) {"App can't have average rating < 0 or > 5"}
+        require(appSize > 0) {"App size can't be less than 0 MB"}
     }
 }

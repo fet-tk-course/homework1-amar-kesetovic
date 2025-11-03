@@ -7,8 +7,8 @@ data class Developer(
     var appList : MutableList<Application>
 ){
     init {
-        if (devName.isEmpty() || devLastName.isEmpty()) println("Developer must have first name")
-        if(devCountry.isEmpty()) println("Developer must have a country")
+        require(!devName.isEmpty() && !devLastName.isEmpty()) {"Developer must have a name"}
+        require(!devCountry.isEmpty()) {"Developer must have a country"}
 
     }
 }
