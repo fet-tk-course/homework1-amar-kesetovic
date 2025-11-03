@@ -33,3 +33,12 @@ fun parseDownloads(num : Long) : String {
         else -> num.toString()
     }
 }
+
+fun prettyPrintProvjera(map : Map<Category, List<Application>>) {
+    for((key, value) in map){
+        println("Category : $key")
+        for(i in value){
+            println("$i")
+        }
+    }
+}

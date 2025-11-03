@@ -84,3 +84,24 @@ fun findAppByName(apps : List<Application>, filterString : String) : Application
     val app : Application? = apps.firstOrNull {x -> x.appName == filterString}
     return app
 }
+
+fun topNPerCategory(apps : List<Application> , n:Int) : Map<Category, List<Application>> {
+    val group = apps
+        .sortedByDescending { it.appAverageRating }
+        .sortedByDescending { it.appDownloads }
+        .sortedBy { it.appSize }
+        .groupingBy { it.appCategory }
+        .fold (mutableMapOf<Category, MutableList<Application>>()) {
+            acc, elem ->
+            if(acc[elem.appCategory] == null) acc[elem.appCategory] = mutableListOf<Application>()
+            if(acc[elem.appCategory]?.size != n){
+                acc[elem.appCategory]?.add(elem)
+            }
+            acc
+        }
+    val destination = mutableMapOf<Category, List<Application>>()
+    group.forEach { (key, value) ->
+        destination[key] =  value[key]!!
+    }
+    return destination
+}

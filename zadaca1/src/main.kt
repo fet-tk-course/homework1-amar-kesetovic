@@ -65,4 +65,7 @@ fun main() {
     val devAverage = getDevAverageRating(devs[0])
     println("GET DEV AVERAGE RESULT")
     println(devAverage)
+
+    val provjera = topNPerCategory(apps, 3);
+    prettyPrintProvjera(provjera);
 }
