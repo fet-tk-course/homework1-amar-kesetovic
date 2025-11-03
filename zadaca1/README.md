@@ -16,6 +16,9 @@ Unutar helpers package-a nalaze se dva kotlin file-a, Printing.kt u kojem su def
 
 ## Models package
 Sadrži 3 file-a koji definiraju korištene klase u implementaciji rješenja. Pored osnovnih Application i Developer klasa tu je i pomoćna  enum klasa Category koja postavlja predefinirane kategorije aplikacija kao i u stvarnim scenarijima.
+
+ChatGPT je korišten za pronalazak boljeg metoda za init checkove pri konstrukciji objekata klasa Application i Developer jer nismo pominjali require na predavanjima.
+
 ## Services package
 Sadrži dva file-a, ApplicationService koji definira sve funkcije za rad sa Application tipom te DeveloperService koja sadrži implementacije funkcija za rad sa Developer objektima kao i funkciju za povezivanje konkretne aplikacije sa određenim dev-om.
 
